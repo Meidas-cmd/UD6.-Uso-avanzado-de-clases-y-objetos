@@ -18,6 +18,11 @@ public class Reponedor extends Persona{
     }
 
     @Override
+    public void trabajar() {
+        System.out.println("Reponiendo productos...");
+    }
+
+    @Override
     public void mostrarInfo(){
         super.mostrarInfo();
         System.out.println("El pasillo asignada es : " + pasillo);

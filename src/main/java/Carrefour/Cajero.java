@@ -16,6 +16,11 @@ public class Cajero extends Persona{
         setCaja();
     }
 
+    @Override
+    public void trabajar() {
+        System.out.println("Cobrando...");
+    }
+
     public int getCaja() {
         return caja;
     }

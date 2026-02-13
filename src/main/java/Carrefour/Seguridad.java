@@ -31,6 +31,11 @@ public class Seguridad extends Persona{
     }
 
     @Override
+    public void trabajar() {
+        System.out.println("Working...");
+    }
+
+    @Override
     public void mostrarInfo(){
 
         super.mostrarInfo();

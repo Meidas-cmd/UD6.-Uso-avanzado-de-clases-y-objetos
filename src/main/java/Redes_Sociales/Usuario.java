@@ -47,6 +47,13 @@ public class Usuario {
     public void setSeguidores(int seguidores) {
         this.seguidores = seguidores;
     }
+    public  void mostrarInfo(){
+
+        System.out.println("Información del Usuario: "  );
+        System.out.println(" Nombre: " + nombre +
+                " Edad: " +edad +
+                " Nombre de usuario: " + nom_usu + " Seguidores: " + seguidores);
+    }
 
     @Override
     public String toString() {

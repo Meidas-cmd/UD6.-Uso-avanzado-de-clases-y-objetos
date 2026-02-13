@@ -1,6 +1,6 @@
 package Carrefour;
 
-public class Persona {
+public abstract class Persona {
 
 
 
@@ -17,6 +17,9 @@ public Persona (int codigo, String nombre , double sueldo ){
 
 
 }
+    public abstract void trabajar();
+
+
 
 
 

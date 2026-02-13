@@ -24,4 +24,16 @@ public class Influencer extends Usuario{
         listaColaboraciones.add(colaboracion);
 
     }
+    @Override
+    public void mostrarInfo(){
+        System.out.println("Informacion del Influencer: ");
+        super.mostrarInfo();
+        System.out.print("Colaboraciones: " );
+        for (String c : listaColaboraciones){
+            System.out.println(c);
+
+        }
+
+    }
+
 }
