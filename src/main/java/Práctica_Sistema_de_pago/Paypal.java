@@ -16,32 +16,19 @@ public class Paypal extends MetodoPago{
           this.saldo=23;
 
     }
-    public String validarPayPal(String cuenta){
-        String formato = "[_%]+@[_%.-]+.com";
-        String validado = "";
-        if (cuenta.matches(formato)){
-
-            validado = cuenta;
-            return validado;
-
-        }else {
-            System.out.println("Formato incorrecto:");
-            System.out.println("Vuelve a intentarlo: ");
-            String res = entrada.nextLine();
-            validarPayPal(res);
-
+    public boolean validarPayPal(double importe){
+        String formato = "^[\\w.-]+@[\\w.-]+\\.com$"; //Formato pedido a chatgpt
+        if (!cuenta.matches(formato)){
+            System.out.println("Formato de la cuenta incorreccto no lo cumples:");
+            return false;
+        }
+        if (importe > saldo) {
+            System.out.println("Importe superior al saldo.");
+            return false;
         }
 
-        return validado;
-    }
+        return true;
 
-    public boolean validarImporte(double importe){
-        boolean estado = false;
-        if (importe <=saldo){
-
-            estado = true;
-        }
-        return estado;
     }
 
     public String getCuenta() {
@@ -49,16 +36,16 @@ public class Paypal extends MetodoPago{
     }
 
     public void setCuenta(String cuenta) {
-        this.cuenta = validarPayPal(cuenta);
+        this.cuenta = cuenta;
     }
 
 
     @Override
     public void proceasrPago(double importe) {
-        if (validarImporte(importe)) {
+        if (validarPayPal(importe)) {
             System.out.println("Procesando pago de " + importe + "€ con Paypal");
         } else {
-            System.out.println("El proceso de pago no es posible debido a saldo insuficiente.");
+            System.out.println("No es posible realizar el pago con Paypal.");
         }
     }
     @Override

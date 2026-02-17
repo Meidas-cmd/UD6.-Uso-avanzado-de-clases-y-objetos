@@ -27,16 +27,7 @@ public class TarjetaCredito extends MetodoPago{
     }
 
     public void setTipo(String tipo) {
-        for (int i = 0; i < tipos.length; i++) {
-
-            if (tipo.equals(tipos[i])){
-
-                this.tipo = tipo;
-            }
-
-
-        }
-
+        this.tipo = tipo;
     }
 
     public String getNro_tarjeta() {
@@ -46,17 +37,20 @@ public class TarjetaCredito extends MetodoPago{
         this.nro_tarjeta = nro_tarjeta;
     }
 
-    public void validarTarjeta() {
-        boolean estado = false;
-        if (nro_tarjeta.length() == 15){
-            estado = true;
-        }
-        if (estado){
-            System.out.println("El numero de la tarjeta esta correcto");
+    public boolean validarTarjeta() {
+        if (nro_tarjeta.length() == 16){
+            for (int i = 0; i < tipos.length; i++) {
+                if (tipo.equals(tipos[i])){
+                    System.out.println("El tipo de tarjeta esta dentro de los valores permitidos");
+                    return true;
+                }
+            }
         }else{
 
             System.out.println("El numero de la tarjeta no esta con los valores establecidos.");
+            return false;
         }
+        return false;
     }
 
 
@@ -71,6 +65,11 @@ public class TarjetaCredito extends MetodoPago{
 
     @Override
     public void proceasrPago(double importe) {
-        System.out.println("Procesando pago de " + importe + "€ con tarjeta de credito " + tipo);
+        if(validarTarjeta()){
+            System.out.println("Procesando pago de " + importe + "€ con tarjeta de credito " + tipo);
+        } else {
+            System.out.println("Tarjeta no válida");
+        }
+
     }
 }

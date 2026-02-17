@@ -1,9 +1,11 @@
 package Práctica_Sistema_de_pago;
 
 import java.util.Random;
+import java.util.Scanner;
 
 public class Bizum extends MetodoPago{
     static Random aleatorio = new Random();
+    static Scanner entrada = new Scanner(System.in);
 
 
     private String telefono;
@@ -12,18 +14,31 @@ public class Bizum extends MetodoPago{
     public Bizum(String telefono){
 
         this.telefono = telefono;
-        this.pin = aleatorio.nextInt(99999,1000000);
+        this.pin = aleatorio.nextInt(100000,1000000);
+        System.out.println("El pin es: " + pin);
 
 
     }
 
-    public void validarBizum(String ttele,int pin){
+    public boolean validarBizum() {
 
-        if (ttele.length()==8){
-            System.out.println("");
+        if (telefono == null || !telefono.matches("\\d{9}")) {
+            System.out.println("Teléfono no válido. Debe tener 9 dígitos.");
+            return false;
         }
 
+        System.out.print("Introduce el PIN de 6 dígitos: ");
+        int pinIntroducido = entrada.nextInt();
+
+        if (pinIntroducido == pin) {
+            System.out.println("Bizum validado correctamente.");
+            return true;
+        } else {
+            System.out.println("PIN incorrecto.");
+            return false;
+        }
     }
+
 
 
     public String getTelefono() {
@@ -44,7 +59,11 @@ public class Bizum extends MetodoPago{
 
     @Override
     public void proceasrPago(double importe) {
-        System.out.println("Procesando pago de " + importe + "€ con Bizum.");
+        if(validarBizum()){
+            System.out.println("Procesando pago de " + importe + "€ con Bizum.");
+        } else {
+            System.out.println("No se pudo procesar el pago.");
+        }
     }
     @Override
     public String toString() {
