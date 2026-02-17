@@ -1,0 +1,60 @@
+@startuml
+' Clase abstracta MetodoPago
+abstract class MetodoPago {
+    + proceasrPago(importe: double)
+}
+
+' Clase TarjetaCredito
+class TarjetaCredito {
+    - tipos: String[] = {"VISA","MASTERCARD","MAESTRO"}
+    - nro_tarjeta: String
+    - tipo: String
+    + TarjetaCredito(nro_tarjeta: String, tipo: String)
+    + validarTarjeta(): boolean
+    + proceasrPago(importe: double)
+    + toString(): String
+}
+
+' Clase Paypal
+class Paypal {
+    - cuenta: String
+    - saldo: double = 23
+    + Paypal(cuenta: String)
+    + validarPayPal(importe: double): boolean
+    + proceasrPago(importe: double)
+    + toString(): String
+}
+
+' Clase Bizum
+class Bizum {
+    - telefono: String
+    - pin: int
+    + Bizum(telefono: String)
+    + validarBizum(): boolean
+    + proceasrPago(importe: double)
+    + toString(): String
+}
+
+' Clase Tienda
+class Tienda {
+    + iniciarPago(): void
+    + realizarPago(metodo: MetodoPago): void
+    - crearTarjeta(): MetodoPago
+    - crearPayPal(): MetodoPago
+    - crearBizum(): MetodoPago
+}
+
+' Clase AppEcommerce
+class AppEcommerce {
+    + main(args: String[]): void
+}
+
+' Relaciones
+TarjetaCredito --|> MetodoPago
+Paypal --|> MetodoPago
+Bizum --|> MetodoPago
+
+Tienda --> MetodoPago : usa
+AppEcommerce --> Tienda : usa
+
+@enduml

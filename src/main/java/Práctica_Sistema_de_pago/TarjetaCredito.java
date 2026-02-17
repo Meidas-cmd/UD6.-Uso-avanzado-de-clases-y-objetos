@@ -5,7 +5,11 @@ import com.sun.security.jgss.GSSUtil;
 import java.sql.SQLOutput;
 import java.util.Arrays;
 import java.util.Scanner;
-
+/**
+ * Implementación de pago mediante Tarjeta de Crédito (VISA, MASTERCARD, MAESTRO).
+ * @author Jorge Cuartero Giner
+ * @version 1.0
+ */
 public class TarjetaCredito extends MetodoPago{
     private final String[] tipos = {"VISA","MASTERCARD","MAESTRO"};
 
@@ -36,7 +40,10 @@ public class TarjetaCredito extends MetodoPago{
     public void setNro_tarjeta(String nro_tarjeta) {
         this.nro_tarjeta = nro_tarjeta;
     }
-
+    /**
+     * Verifica si el número tiene 16 dígitos y el tipo es aceptado dentro de la lista permitida.
+     * @return true si la tarjeta cumple las condiciones de longitud y tipo, false en caso contrario.
+     */
     public boolean validarTarjeta() {
         if (nro_tarjeta.length() == 16){
             for (int i = 0; i < tipos.length; i++) {
@@ -62,7 +69,10 @@ public class TarjetaCredito extends MetodoPago{
                 ", tipo='" + tipo + '\'' +
                 '}';
     }
-
+    /**
+     * Ejecuta el proceso de pago tras validar la tarjeta mediante el método validarTarjeta.
+     * @param importe Cantidad a cargar en la tarjeta.
+     */
     @Override
     public void proceasrPago(double importe) {
         if(validarTarjeta()){
