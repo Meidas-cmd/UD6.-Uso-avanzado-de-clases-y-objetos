@@ -1,9 +1,5 @@
 package Práctica_Sistema_de_pago;
-/**
- * Clase abstracta que define la estructura base para los diferentes métodos de pago.
- * @author Jorge Cuartero Giner
- * @version 1.0
- */
+
 public abstract class MetodoPago {
 
 

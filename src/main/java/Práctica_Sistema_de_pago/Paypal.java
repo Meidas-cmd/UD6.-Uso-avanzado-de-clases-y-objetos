@@ -1,11 +1,7 @@
 package Práctica_Sistema_de_pago;
 
 import java.util.Scanner;
-/**
- * Implementación de pago a través de la plataforma PayPal con validación de saldo.
- * @author Jorge Cuartero Giner
- * @version 1.0
- */
+
 public class Paypal extends MetodoPago{
     static Scanner entrada = new Scanner(System.in);
 
@@ -21,7 +17,7 @@ public class Paypal extends MetodoPago{
 
     }
     /**
-     * Valida el formato del correo electrónico mediante una expresión regular y comprueba el saldo.
+     * Valida el formato del correo electrónico  y comprueba el saldo.
      * @param importe Cantidad que se desea pagar.
      * @return true si el email es válido y el importe no supera el saldo disponible.
      */

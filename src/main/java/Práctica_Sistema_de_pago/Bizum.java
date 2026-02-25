@@ -2,11 +2,7 @@ package Práctica_Sistema_de_pago;
 
 import java.util.Random;
 import java.util.Scanner;
-/**
- * Implementación de pago mediante el sistema Bizum con validación por número de teléfono y PIN.
- * @author Jorge Cuartero Giner
- * @version 1.0
- */
+
 public class Bizum extends MetodoPago{
     static Random aleatorio = new Random();
     static Scanner entrada = new Scanner(System.in);

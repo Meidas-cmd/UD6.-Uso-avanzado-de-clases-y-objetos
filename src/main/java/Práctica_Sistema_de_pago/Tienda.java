@@ -1,17 +1,13 @@
 package Práctica_Sistema_de_pago;
 
 import java.util.Scanner;
-/**
- * Clase principal que gestiona la lógica de la tienda, la interacción con el usuario y el flujo de pago.
- * @author Jorge Cuartero Giner
- * @version 1.0
- */
+
 public class Tienda {
 
     static Scanner entrada = new Scanner(System.in);
     /**
-     * Solicita al usuario el importe y ejecuta la lógica de procesamiento del pago.
-     * @param metodo Instancia de la clase MetodoPago (Tarjeta, PayPal o Bizum).
+     * Solicita al usuario el importe y se activva el procesamiento del pago.
+     * @param metodo
      * @author Jorge Cuartero Giner
      * @version 1.0
      */
@@ -24,7 +20,7 @@ public class Tienda {
         metodo.proceasrPago(importe);
     }
     /**
-     * Muestra el menú de selección, recoge la opción del usuario e instancia el método de pago elegido.
+     * Muestra el menú de selección, recoge la opción del usuario y muestra  el método de pago elegido.
      * @author Jorge Cuartero Giner
      * @version 1.0
      */
