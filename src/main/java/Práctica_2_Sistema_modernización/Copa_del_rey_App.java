@@ -1,5 +1,6 @@
 package Práctica_2_Sistema_modernización;
 
+import java.sql.SQLOutput;
 import java.util.ArrayList;
 import java.util.Scanner;
 
@@ -56,7 +57,7 @@ public class Copa_del_rey_App {
                 System.out.println("Esta opcion no esta disponible en estos momentos...");
                 break;
             case "4":
-
+                consultarEquipos();
                 break;
             case"X":
                 System.out.println("Saliendo... ");
@@ -65,6 +66,23 @@ public class Copa_del_rey_App {
 
         }
 
+
+    }
+
+    public void consultarEquipos(){
+        int id = 0;
+
+        System.out.println("Eqquipos: ");
+        for (Equipos eq1 : Equipos.values()){
+
+            System.out.println("Id del equipo: " + id + ",  Equipo: " + eq1.name());
+
+        }
+
+        System.out.println("Cual elijes: ");
+        String equipo = entrada.nextLine();
+
+        //No se que hay que mostrar despues de elegirlo
 
     }
 
@@ -95,11 +113,12 @@ public class Copa_del_rey_App {
                 menuMantenimientoEntrenadores();
                 break;
             case "2":
-
+                modificarEntrenador();
                 menuMantenimientoEntrenadores();
                 break;
             case "X":
-                System.out.println("Saliendo...");
+                System.out.println("Volviendo...");
+                menuMantenimiento();
                 break;
             default:
                 System.out.println("Esa opcion no existe...");
@@ -111,8 +130,92 @@ public class Copa_del_rey_App {
 
     public void modificarEntrenador(){
 
+        int ids = 0;
+
+        System.out.println(" === Mantenimiento de Jugadores ===");
+        System.out.println(" ");
+        System.out.println("¿De que entrenador quieres hacer cambios?");
+        System.out.println(" ");
+        for (Entrenador e : listaEntrenadores){
+
+            System.out.println("Id del entrenador: " + ids +"Nombre: "  + e.getNombre() + " Edad: " + e.getEdad() + ", Equipo: " + e.getEquipo() + ", FormacionPreferiada: " + e.getFormacionPreferida());
+
+        }
+        System.out.println(" ");
+        System.out.println("================================");
+        String en = entrada.nextLine();
+        opcModificarEntrenador(en);
 
     }
+
+    public void opcModificarEntrenador(String e){
+
+        String dato = "";
+
+        System.out.println("=== Mantenimiento de Entrenadores. Modificar datos de Entrenador existente ===");
+        System.out.println(" ");
+        System.out.println("Modificando jugador: " + listaEntrenadores.get(Integer.parseInt(e)).toString());
+        System.out.println(" ");
+        System.out.println("¿Que dato quieres modificar? [Nombre,Edad,Equipo,Formacion]");
+        System.out.println(" ");
+        System.out.println("========================");
+        System.out.print("Selecciona una opción --> ");
+        String res = entrada.nextLine();
+
+
+        switch (res.toLowerCase()){
+
+            case "nombre":
+                System.out.println("Introduce el nuevo nombre del entrenador:");
+                dato = entrada.nextLine();
+                listaEntrenadores.get(Integer.parseInt(e)).setNombre(dato);
+                break;
+
+            case "edad":
+                System.out.println("Introduce la nueva edad del entrenador:");
+                dato = entrada.nextLine();
+                listaEntrenadores.get(Integer.parseInt(e)).setEdad(Integer.parseInt(dato));
+                break;
+
+            case "equipo":
+                boolean est = false;
+                System.out.println("Introduce el nuevo Equipo del entrenador: ");
+                dato = entrada.nextLine();
+                for (Equipos eq : Equipos.values()){
+                    if (eq.name().equalsIgnoreCase(dato)){
+                        est = true;
+                       }
+                }
+                if (est){
+                    System.out.println("Actualizando equipo...");
+                    listaEntrenadores.get(Integer.parseInt(e)).setEquipo(Equipos.valueOf(dato.toUpperCase()));
+                }else{
+                    System.out.println("El equipo no existe dentro de nuestros datos, intentelo de nuevo");
+                    opcModificarEntrenador(e);
+                }
+
+                break;
+
+            case "formacion":
+                System.out.println("Introduce la nueva formacion preferiada del entrenador FORMATO-->N-N-N");
+                dato = entrada.nextLine();
+                listaEntrenadores.get(Integer.parseInt(e)).setFormacionPreferida(dato);
+                break;
+
+            case"x":
+                System.out.println("Volviendo atras...");
+                menuMantenimientoEntrenadores();
+                break;
+
+            default:
+                System.out.println("Ese atributo no existe intentalo de nuevo:");
+                opcModificarEntrenador(e);
+                break;
+        }
+
+
+    }
+
 
     public void añadirEntrenadorlista(){
 
