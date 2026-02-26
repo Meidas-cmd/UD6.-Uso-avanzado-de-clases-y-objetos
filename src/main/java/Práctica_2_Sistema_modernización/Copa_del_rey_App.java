@@ -6,7 +6,7 @@ import java.util.Scanner;
 
 public class Copa_del_rey_App {
     static Scanner entrada = new Scanner(System.in);
-    ArrayList<Entrenador> listaEntrenadores = new ArrayList<>();
+    static ArrayList<Entrenador> listaEntrenadores = new ArrayList<>();
     public static void main(String[] args) {
 
 
@@ -19,9 +19,10 @@ public class Copa_del_rey_App {
         System.out.println(jugador1.getDorsal());
 
 
+        menuMantenimiento();
 
     }
-    public void menuMantenimiento(){
+    public static void menuMantenimiento(){
 
         System.out.println("=== App de mantenimiento del Mutxamel FC ===");
         System.out.println(" ");
@@ -43,7 +44,7 @@ public class Copa_del_rey_App {
 
     }
 
-    public void opcionesMantenimiento(String opc){
+    public static void opcionesMantenimiento(String opc){
 
         switch (opc){
 
@@ -69,7 +70,7 @@ public class Copa_del_rey_App {
 
     }
 
-    public void consultarEquipos(){
+    public static void consultarEquipos(){
         int id = 0;
 
         System.out.println("Eqquipos: ");
@@ -88,7 +89,7 @@ public class Copa_del_rey_App {
 
 
 
-    public void menuMantenimientoEntrenadores(){
+    public static void menuMantenimientoEntrenadores(){
 
         System.out.println("=== Mantenimiento de Jugadores ===");
         System.out.println(" ");
@@ -104,7 +105,7 @@ public class Copa_del_rey_App {
 
     }
 
-    public void opcMantenimientoEntrenador(String opc2){
+    public static void opcMantenimientoEntrenador(String opc2){
 
         switch (opc2){
 
@@ -128,7 +129,7 @@ public class Copa_del_rey_App {
         }
     }
 
-    public void modificarEntrenador(){
+    public static void modificarEntrenador(){
 
         int ids = 0;
 
@@ -148,7 +149,7 @@ public class Copa_del_rey_App {
 
     }
 
-    public void opcModificarEntrenador(String e){
+    public static void opcModificarEntrenador(String e){
 
         String dato = "";
 
@@ -217,7 +218,7 @@ public class Copa_del_rey_App {
     }
 
 
-    public void añadirEntrenadorlista(){
+    public static void añadirEntrenadorlista(){
 
         System.out.println("Dime el nombre del nuevo entrenador: ");
         String nom = entrada.next();
