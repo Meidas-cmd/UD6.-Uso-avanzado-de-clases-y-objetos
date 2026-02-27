@@ -17,6 +17,8 @@ public class Copa_del_rey_App {
         Entrenador  entrenador = new Entrenador("Entrenador",32,Equipos.BENJAMIN,"4-3-3");
 
         System.out.println(jugador1.getDorsal());
+        System.out.println(jugador2.getDorsal());
+
 
 
         menuMantenimiento();
@@ -81,10 +83,14 @@ public class Copa_del_rey_App {
         }
 
         System.out.println("Cual elijes: ");
-        String equipo = entrada.nextLine();
+        Equipos equipo = Equipos.valueOf(entrada.nextLine());
 
-        //No se que hay que mostrar despues de elegirlo
 
+        for (Jugador j : Jugador.listaDorsales){
+            if (equipo == j.getCategoria()){
+                System.out.println("Jugador: " + j.getNombre() + "- Dorsal: " + j.getDorsal() + "- pertenece al equipo.");
+            }
+        }
     }
 
 
@@ -219,6 +225,8 @@ public class Copa_del_rey_App {
 
 
     public static void añadirEntrenadorlista(){
+        boolean est = true;
+        Equipos equip = null;
 
         System.out.println("Dime el nombre del nuevo entrenador: ");
         String nom = entrada.next();
@@ -226,9 +234,17 @@ public class Copa_del_rey_App {
         System.out.println("Dime la edad del entrenador: ");
         int ed = entrada.nextInt();
         entrada.nextLine();
-        System.out.println("Dime de que equipo es el entrenador(BENJAMIN,ALEVÍN,INFANTIL,CADETE,JUVENIL,SENIOR):");
-        Equipos equip = Equipos.valueOf(entrada.next());
-        entrada.nextLine();
+        while (est) {
+            System.out.println("Dime de que equipo es el entrenador (BENJAMIN, ALEVÍN, INFANTIL, CADETE, JUVENIL, SENIOR):");
+            String equi = entrada.nextLine().toUpperCase();
+
+            try {
+                equip = Equipos.valueOf(equi);
+                est = false;
+            } catch (IllegalArgumentException e) {
+                System.out.println("Equipo no válido. Inténtalo otra vez.");
+            }
+        }
         System.out.println("Dime su formacion preferida:N-N-N");
         String form = entrada.next();
         entrada.nextLine();

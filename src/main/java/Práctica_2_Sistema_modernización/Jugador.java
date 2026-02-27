@@ -6,15 +6,16 @@ import java.util.ArrayList;
 public class Jugador extends MutxamelFC implements FuncionesIntegrantes,AccionesDeportivas{
 
     private Equipos categoria;
-    private Integer dorsal;
+    private int dorsal;
     private Posiciones posicion;
-    private static ArrayList<Integer> listaDorsales= new ArrayList<>();
+    static ArrayList<Jugador> listaDorsales= new ArrayList<>();
 
-    public Jugador(String nombre, int edad, Equipos categoria,Integer dorsal,Posiciones posicion) {
+    public Jugador(String nombre, int edad, Equipos categoria,int dorsal,Posiciones posicion) {
         super(nombre, edad);
         this.categoria = categoria;
-        setDorsal(dorsal);
         this.posicion = posicion;
+        setDorsal(dorsal);
+
     }
 
 
@@ -30,15 +31,23 @@ public class Jugador extends MutxamelFC implements FuncionesIntegrantes,Acciones
         return dorsal;
     }
 
-    public void setDorsal(Integer dorsal) {
-
+    public void setDorsal(int dorsal) {
+            boolean estado = false;
 
             try {
-                if (!listaDorsales.contains(dorsal)){
-                    listaDorsales.add(dorsal);
-                    this.dorsal = dorsal;
-                }else {
+                for (Jugador j : listaDorsales) {
+                    if (dorsal == j.getDorsal() && categoria == j.getCategoria()) {
+                        estado = true;
+                    }
+
+                }
+
+                if (estado){
                     throw new DorsalExistente();
+                }else {
+
+                    listaDorsales.add(this);
+                    this.dorsal = dorsal;
                 }
             } catch (DorsalExistente e) {
                 System.out.println(e.getMessage());
