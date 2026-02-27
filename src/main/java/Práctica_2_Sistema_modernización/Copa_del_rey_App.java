@@ -110,7 +110,8 @@ public class Copa_del_rey_App {
     }
 
     /****
-     * Metodo que llamamos del metodo opcionesmantenimiento que mostraremos el menu 
+     * Metodo que llamamos del metodo opcionesmantenimiento que mostraremos el submenu de la opcion mantenimiento entrenadores
+     * @author JorgeC.G.
      */
 
 
@@ -129,6 +130,12 @@ public class Copa_del_rey_App {
         opcMantenimientoEntrenador(opc2);
 
     }
+
+    /****
+     * Metodo que recibe la opcion elegida en el metodo menuMantenimientoEntrenadores y ejecuta el codigo necesario para realizar la opcion elegida.
+     * @param opc2
+     * @author JorgeC.G.
+     */
 
     public static void opcMantenimientoEntrenador(String opc2){
 
