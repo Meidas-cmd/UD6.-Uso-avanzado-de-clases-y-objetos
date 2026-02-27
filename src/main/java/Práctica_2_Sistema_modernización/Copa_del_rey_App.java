@@ -24,6 +24,11 @@ public class Copa_del_rey_App {
         menuMantenimiento();
 
     }
+
+    /****
+     * Metodo donde mostraremos un menu con las opciones donde recogeremos la respuesta y llamaremos a otro metodo pasandole la repuesta
+     * @author JorgeC.G.
+     */
     public static void menuMantenimiento(){
 
         System.out.println("=== App de mantenimiento del Mutxamel FC ===");
@@ -45,6 +50,12 @@ public class Copa_del_rey_App {
         opcionesMantenimiento(opc);
 
     }
+
+    /****
+     * Metodo donde recibiremos la opcion elegida en el Metodo menuMantenimeinto y segun la opcion elegida ejecutaremos una llamada a otro metodo(solo esta disponibles la opcion 2 ,4 y la X que es para salir
+     * @param opc
+     * @author JorgeC.G.
+     */
 
     public static void opcionesMantenimiento(String opc){
 
@@ -72,6 +83,11 @@ public class Copa_del_rey_App {
 
     }
 
+    /****
+     * Metodo que mostraremos el contenido del enum y el usuario elegira uno y mostraremso todos los jugadores pertenecientes a esa opcion elegida.
+     * @author JorgeC.G.
+     */
+
     public static void consultarEquipos(){
         int id = 0;
 
@@ -93,6 +109,9 @@ public class Copa_del_rey_App {
         }
     }
 
+    /****
+     * Metodo que llamamos del metodo opcionesmantenimiento que mostraremos el menu 
+     */
 
 
     public static void menuMantenimientoEntrenadores(){

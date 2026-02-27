@@ -31,6 +31,11 @@ public class Jugador extends MutxamelFC implements FuncionesIntegrantes,Acciones
         return dorsal;
     }
 
+    /****
+     * En este set hay un par de modificaciones para comprobar que el dorsal no ha sido asignado ya ha otro jugador.
+     * @author JorgeC.G.
+      * @param dorsal
+     */
     public void setDorsal(int dorsal) {
             boolean estado = false;
 
@@ -63,15 +68,30 @@ public class Jugador extends MutxamelFC implements FuncionesIntegrantes,Acciones
         this.posicion = posicion;
     }
 
+
+    /****
+     * En este metodo lo usamos para mostrar un mensaje personalizado del calentamiento para los jugadores
+     * @author JorgeC.G.
+     */
     public void calentar(){
 
         System.out.println("El " + this.getNombre() + " esta haciendo ejercicios de calentamiento: ");
     }
+
+    /****
+     * Este metodo muestra un mensaje personalizado para esta clase de la accion descansar
+     * @author JorgeC.G.
+     */
     public void descansar(){
 
         System.out.println("El " + this.getNombre() + " esta descansando");
 
     }
+
+    /****
+     * Metdodo solo para la clase Jugador que muestra por pantalla un mensaje de marcar gol
+     * @author JorgeC.G.
+     */
     public void marcarGol(){
 
         System.out.println("El "+ this.getNombre() + " ha marcado un gol");
@@ -86,10 +106,21 @@ public class Jugador extends MutxamelFC implements FuncionesIntegrantes,Acciones
                 '}';
     }
 
+    /****
+     * Metodo que se obtiene de la interfaz FuncionesIntegrantes donde modificamos el mensaje de concentrarse
+     * @author JorgeC.G
+     */
+
     @Override
     public void concentrarse() {
         System.out.println("El jugador " + getNombre() + " esta concentrandose para jugar el partido");
     }
+
+    /****
+     * Metodo tambien obtenido de la interfaz FuncionesIntegrantes donde recogemos un String que seria el destino para que aparezca el mensaje por pantalla personalizado.
+     * @author JorgeC.G.
+     * @param ciudad
+     */
 
     @Override
     public void viajar(String ciudad) {
@@ -98,6 +129,11 @@ public class Jugador extends MutxamelFC implements FuncionesIntegrantes,Acciones
 
     }
 
+    /****
+     * Metodo heredado de FuncionesIntegrantes donde lo modificamos para personalizar el mensaje que mostraremos al llamarlo.
+     * @author JorgeC.G.
+     */
+
     @Override
     public void celebrarGol() {
 
@@ -105,11 +141,22 @@ public class Jugador extends MutxamelFC implements FuncionesIntegrantes,Acciones
 
     }
 
+    /****
+     * Metodo de la interfaz AccionesDeportivas la cual modificaremos para personalizarlo hacia la Clase Jugador donde mostraremos un mensaje.
+     * @author JorgeC.G.
+     */
+
     @Override
     public void entrenar() {
         System.out.println("El jugador " + getNombre() + " esta escuchando las indicaciones del entrenador");
     }
 
+
+    /****
+     * Metodo proveniente de la interfaz AccionesDeportivas donde recibiremos un String que es el rival al que nos enfrentamos y mostramos un mensaje del jugador y su rival.
+     * @param rival
+     * @author JorgeC.G.
+     */
     @Override
     public void jugarPartido(String rival) {
 
