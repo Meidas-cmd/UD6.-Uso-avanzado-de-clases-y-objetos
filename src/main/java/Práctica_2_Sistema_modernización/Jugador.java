@@ -1,6 +1,5 @@
 package Práctica_2_Sistema_modernización;
 
-import java.sql.SQLOutput;
 import java.util.ArrayList;
 
 public class Jugador extends MutxamelFC implements FuncionesIntegrantes,AccionesDeportivas{

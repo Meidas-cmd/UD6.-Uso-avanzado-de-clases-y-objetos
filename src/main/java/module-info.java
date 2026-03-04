@@ -1,0 +1,2 @@
+module Bateria.herencia.polimorfismo {
+}

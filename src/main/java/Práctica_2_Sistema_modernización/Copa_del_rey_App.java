@@ -1,6 +1,5 @@
 package Práctica_2_Sistema_modernización;
 
-import java.sql.SQLOutput;
 import java.util.ArrayList;
 import java.util.Scanner;
 

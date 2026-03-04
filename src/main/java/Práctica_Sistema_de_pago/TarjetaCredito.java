@@ -1,10 +1,7 @@
 package Práctica_Sistema_de_pago;
 
-import com.sun.security.jgss.GSSUtil;
 
-import java.sql.SQLOutput;
 import java.util.Arrays;
-import java.util.Scanner;
 /**
  * Implementación de pago mediante Tarjeta de Crédito (VISA, MASTERCARD, MAESTRO).
  * @author Jorge Cuartero Giner
